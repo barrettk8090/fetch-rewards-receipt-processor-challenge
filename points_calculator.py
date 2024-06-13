@@ -1,27 +1,5 @@
 import math
 
-receipt_test = {
-  "retailer": "M&M Corner Market",
-  "purchaseDate": "2022-03-20",
-  "purchaseTime": "14:33",
-  "items": [
-    {
-      "shortDescription": "Gatorade",
-      "price": "2.25"
-    },{
-      "shortDescription": "Gatorade",
-      "price": "2.25"
-    },{
-      "shortDescription": "Gatorade",
-      "price": "2.25"
-    },{
-      "shortDescription": "Gatorade",
-      "price": "2.25"
-    }
-  ],
-  "total": "9.00"
-}
-
 # Award 1 point for each alphaneumeric character in the receipts retailer's name. – ❗NEEDS VALIDATION
 def calculate_retailer_points(receipt):
     points = 0
@@ -110,5 +88,3 @@ def calculate_total_receipt_points(receipt):
     total_points += calculate_time_of_purchase_points(receipt)
     
     return total_points
-
-print(calculate_total_receipt_points(receipt_test))

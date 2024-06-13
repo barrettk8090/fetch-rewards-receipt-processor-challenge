@@ -12,7 +12,7 @@ receipts = {}
 @app.route('/receipts/process', methods=['POST'])
 def process_receipts():
     receipt = request.get_json()
-    if receipt is None:
+    if receipt is None or receipt["retailer"] is None:
         return jsonify(error="There was an issue processing your receipt. Check to ensure that your receipt JSON matches the requirements."), 400
     receipt_id = str(uuid.uuid4())
     receipts[receipt_id] = receipt
