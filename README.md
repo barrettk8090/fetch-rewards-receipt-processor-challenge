@@ -2,7 +2,7 @@
 
 The Fetch Rewards Receipt Processor is a web service that provides rewards points to users who provide receipt JSON. This service was developed using Python and Flask, but can also be run on any device using the included Dockerfile. Instructions for running the application can be found below.
 
-The original task for this webservice can be found at the link [here](https://github.com/fetch-rewards/receipt-processor-challenge)
+The original task for this web service can be found at the link [here](https://github.com/fetch-rewards/receipt-processor-challenge)
 
 ## API Endpoints
 
@@ -48,13 +48,35 @@ Example Response:
 
 ## Running the Application
 
-To run the application in Docker,
+### Using Docker
 
-If you have Python installed on your device and would prefer to run the application that way, you can follow these steps instead:
+Clone the repository and ensure that you have Docker installed on your computer.
+
+To run the application in Docker:
+
+1. Navigate to the project directory and open a terminal window.
+2. Run the folloiwing command:
+
+   `docker build -t fetch-rewards .`
+
+   and allow the build to finish before proceeding.
+
+3. To start the container, run:
+
+`docker run -p 8000:8000`
+
+4. The Flask app should now be running at
+
+`http://localhost:8000`
+
+5. Now that the app is running, follow the instructions in the below section, "Testing Endpoints".
 
 ## Testing Endpoints
 
 Once the application is up and running, I recommend using a service like [Postman](https://www.postman.com/) to test the endpoints with valid receipt JSON.
+
+You can follow the instructions below, or watch this video for an overview on testing the endpoints:
+<video controls src="receipt_testing_in_postman.mp4" title="Receipt Testing in Postman"></video>
 
 First, make a `POST` request to the `/receipts/process` endpoint by pasting in your valid receipt JSON in the body. Once you click send, you should receive an ID (uuid), which is required for the rewards endpoint. Copy the ID to your clipboard.
 
@@ -64,7 +86,7 @@ You should receive a response with the number of points earned for that receipt.
 
 ## Receipt Reward Requirements and Points Structure
 
-Receipt Requirements: Receipts must be in JSON format, and adhere to the schema defined in the YAML file [here](https://github.com/fetch-rewards/receipt-processor-challenge/blob/main/api.yml).
+Receipt Requirements: Receipts must be in JSON format, and adhere to the schema defined in the YAML file [here](https://github.com/fetch-rewards/receipt-processor-challenge/blob/main/api.yml). To simplify this project, JSON receipts that don't adhere to this schema will not be accepted, and will result in an error.
 
 These rules collectively define how many points should be awarded to a receipt.
 
