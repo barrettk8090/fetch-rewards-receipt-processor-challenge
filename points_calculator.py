@@ -1,6 +1,6 @@
 import math
 
-# Award 1 point for each alphaneumeric character in the receipts retailer's name. – ❗NEEDS VALIDATION
+# Award 1 point for each alphaneumeric character in the receipts retailer's name.
 def calculate_retailer_points(receipt):
     points = 0
     retailer = receipt.get("retailer")
@@ -9,7 +9,7 @@ def calculate_retailer_points(receipt):
             points += 1
     return points
 
-# If the total of the receipt is a round dollar amount with no cents, award 50 points. – ❗NEEDS VALIDATION
+# If the total of the receipt is a round dollar amount with no cents, award 50 points. 
 def calculate_round_dollar_amount_points(receipt):
     points = 0
     receipt_total = float(receipt.get("total"))  # Turn string "receipt[total]"" into type float 
@@ -18,7 +18,7 @@ def calculate_round_dollar_amount_points(receipt):
         points += 50
     return points
 
-# If the total of the receipt is a multiple of 0.25, award 25 points. – ❗NEEDS VALIDATION
+# If the total of the receipt is a multiple of 0.25, award 25 points. 
 def calculate_total_multiples_points(receipt):
     points = 0
     receipt_total = float(receipt.get("total"))  # Turn string "receipt[total]"" into type float 
@@ -27,7 +27,7 @@ def calculate_total_multiples_points(receipt):
         points += 25
     return points
 
-# For every 2 items on the receipt, award 5 points – ❗NEEDS VALIDATION
+# For every 2 items on the receipt, award 5 points 
 def calculate_two_items_points(receipt):
     points = 0
     receipt_items = receipt.get("items")
@@ -37,7 +37,7 @@ def calculate_two_items_points(receipt):
     points = num_of_item_pairs * 5
     return points
 
-# If an items shortDescription length is a mulitiple of 3, multiply the items price by 0.2 and round up to nearest int. Award that # of points. ❗NEEDS VALIDATION 
+# If an items shortDescription length is a mulitiple of 3, multiply the items price by 0.2 and round up to nearest int. Award that # of points. 
 def calculate_trimmed_length_multiples_points(receipt):
     points = 0 
     receipt_items = receipt.get("items")
