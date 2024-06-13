@@ -2,7 +2,7 @@
 
 The Fetch Rewards Receipt Processor is a web service that provides rewards points to users who provide receipt JSON. This service was developed using Python and Flask, but can also be run on any device using the included Dockerfile. Instructions for running the application can be found below.
 
-## Receipt Reward Requirements & Points Structure
+The original task for this webservice can be found at the link [here](https://github.com/fetch-rewards/receipt-processor-challenge)
 
 ## API Endpoints
 
@@ -32,7 +32,7 @@ Example Response:
 { "id": "7fb1377b-b223-49d9-a31a-5a02701dd310" }
 ```
 
-## Endpoint 2: Earn Points
+### Endpoint 2: Earn Points
 
 - Path: `/receipts/{id}/points`
 - Method: `GET`
@@ -46,9 +46,25 @@ Example Response:
 { "points": 32 }
 ```
 
----
+## Running the Application
 
-# Rules
+To run the application in Docker,
+
+If you have Python installed on your device and would prefer to run the application that way, you can follow these steps instead:
+
+## Testing Endpoints
+
+Once the application is up and running, I recommend using a service like [Postman](https://www.postman.com/) to test the endpoints with valid receipt JSON.
+
+First, make a `POST` request to the `/receipts/process` endpoint by pasting in your valid receipt JSON in the body. Once you click send, you should receive an ID (uuid), which is required for the rewards endpoint. Copy the ID to your clipboard.
+
+Next, switch to a `GET` request for the `/receipts/{id}/points` endpoint. In place of `{id}`, paste in the ID that you copied from the previous step and hit send.
+
+You should receive a response with the number of points earned for that receipt.
+
+## Receipt Reward Requirements and Points Structure
+
+Receipt Requirements: Receipts must be in JSON format, and adhere to the schema defined in the YAML file [here](https://github.com/fetch-rewards/receipt-processor-challenge/blob/main/api.yml).
 
 These rules collectively define how many points should be awarded to a receipt.
 

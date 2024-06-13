@@ -76,6 +76,7 @@ def calculate_time_of_purchase_points(receipt):
             points += 10
         return points     
 
+# Calculate the total number of points for a receipt
 def calculate_total_receipt_points(receipt):
     total_points = 0
     
