@@ -71,6 +71,10 @@ To run the application in Docker:
 
 Once the application is up and running, I recommend using a service like [Postman](https://www.postman.com/) to test the endpoints with valid receipt JSON.
 
+You can follow the instructions below, or watch the video for an overview:
+
+[![Receipt Testing Video](https://img.youtube.com/vi/WXQlT4cCZIg/0.jpg)](https://www.youtube.com/watch?v=WXQlT4cCZIg)
+
 First, make a `POST` request to the `/receipts/process` endpoint by pasting in your valid receipt JSON in the body. Once you click send, you should receive an ID (uuid), which is required for the rewards endpoint. Copy the ID to your clipboard.
 
 Next, switch to a `GET` request for the `/receipts/{id}/points` endpoint. In place of `{id}`, paste in the ID that you copied from the previous step and hit send.
